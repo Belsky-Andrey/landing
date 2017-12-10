@@ -47,6 +47,7 @@
             @endif
 @endforeach
 
+<!--AboutUs-->
 
 <!--Top_content-->
 
@@ -54,215 +55,119 @@
 <!--main-section-end-->
         @endif
 <!--new_portfolio-->
+
 <!--Service-->
-<section  id="service">
-    <div class="container">
-        <h2>Services</h2>
-        <div class="service_area">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="service_block">
-                        <div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa-flash"></i></span> </div>
-                        <h3 class="animated fadeInUp wow">Quick TurnAround</h3>
-                        <p class="animated fadeInDown wow">Proin iaculis purus consequat sem cure digni. Donec porttitora entum suscipit  aenean rhoncus posuere odio in tincidunt.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service_block">
-                        <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa-comments"></i></span> </div>
-                        <h3 class="animated fadeInUp wow">Friendly Support</h3>
-                        <p class="animated fadeInDown wow">Proin iaculis purus consequat sem cure digni. Donec porttitora entum suscipit  aenean rhoncus posuere odio in tincidunt.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service_block">
-                        <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa-shield"></i></span> </div>
-                        <h3 class="animated fadeInUp wow">top Security</h3>
-                        <p class="animated fadeInDown wow">Proin iaculis purus consequat sem cure digni. Donec porttitora entum suscipit  aenean rhoncus posuere odio in tincidunt.</p>
-                    </div>
-                </div>
+        @if(isset($services) && is_object($services))
+
+    <section  id="service">
+        <div class="container">
+            <h2>Services</h2>
+            <div class="service_area">
+
+                @foreach( $services as $k=>$service)
+
+                    @if($k== 0 || $k%3 == 0)
+                        <div class="row">
+                 @endif
+                            <div class="col-lg-4">
+                                <div class="service_block">
+                                    <div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="{{ $service->icon }}"></i></span> </div>
+                                    <h3 class="animated fadeInUp wow">{{$service->name}}</h3>
+                                    <p class="animated fadeInDown wow">{{$service->text}}.</p>
+                                </div>
+                            </div>
+
+                            @if(($k+1)%3 == 0)
+                        </div>
+                                @endif
+
+                @endforeach
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+            @endif
 
 <!--Service-->
 <!-- Portfolio -->
-<section id="Portfolio" class="content">
 
-    <!-- Container -->
-    <div class="container portfolio-title">
+@if(isset($portfolios) && is_object($portfolios))
 
-        <!-- Section Title -->
-        <div class="section-title">
-            <h2>Portfolio</h2>
-        </div>
-        <!--/Section Title -->
+    <section id="Portfolio" class="content">
 
-    </div>
-    <!-- Container -->
+        <!-- Container -->
+        <div class="container portfolio-title">
 
-    <div class="portfolio-top"></div>
-
-    <!-- Portfolio Plus Filters -->
-    <div class="portfolio">
-
-        <!-- Portfolio Filters -->
-        <div id="filters" class="sixteen columns">
-            <ul class="clearfix">
-                <li><a id="all" href="#" data-filter="*" class="active">
-                        <h5>All</h5>
-                    </a></li>
-                <li><a class="" href="#" data-filter=".branding">
-                        <h5>Branding</h5>
-                    </a></li>
-                <li><a class="" href="#" data-filter=".design">
-                        <h5>Design</h5>
-                    </a></li>
-                <li><a class="" href="#" data-filter=".photography">
-                        <h5>Photography</h5>
-                    </a></li>
-                <li><a class="" href="#" data-filter=".videography">
-                        <h5>Videography</h5>
-                    </a></li>
-                <li><a class="" href="#" data-filter=".web">
-                        <h5>Web</h5>
-                    </a></li>
-            </ul>
-        </div>
-        <!--/Portfolio Filters -->
-
-        <!-- Portfolio Wrap -->
-        <div class="isotope" style="position: relative; overflow: hidden; height: 480px;" id="portfolio-wrap">
-
-            <!-- Portfolio Item With PrettyPhoto  -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four   videography isotope-item">
-                <div class="portfolio-image"> <img src="{{ asset('assets/img/portfolio_pic1.jpg') }}"  alt="Portfolio 1"> </div>
-                <a title="Starbucks Coffee" rel="prettyPhoto[galname]" href="http://clapat.ro/themes/newave/images/portfolio/portfolio2.jpg">
-                    <div class="project-overlay">
-                        <div class="project-info">
-                            <div class="zoom-icon"></div>
-                            <h4 class="project-name">Leica Camera</h4>
-                            <p class="project-categories">Videography</p>
-                        </div>
-                    </div>
-                </a> </div>
-            <!--/Portfolio Item With PrettyPhoto  -->
-
-            <!-- Portfolio Item Video Expander  -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design isotope-item">
-                <div class="portfolio-image"> <img src="{{ asset('assets/img/portfolio_pic2.jpg') }}" alt="Portfolio 1"> </div>
-                <div class="project-overlay">
-                    <div class="open-project-link"> <a class="open-project" href="http://clapat.ro/themes/newave/project-video-expander.html" title="Open Project"></a> </div>
-                    <div class="project-info">
-                        <div class="zoom-icon"></div>
-                        <h4 class="project-name">Foto Template</h4>
-                        <p class="project-categories">Design</p>
-                    </div>
-                </div>
+            <!-- Section Title -->
+            <div class="section-title">
+                <h2>Portfolio</h2>
             </div>
-            <!--/Portfolio Item Video Expander  -->
-
-            <!-- Portfolio Item Normal Expander -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design  isotope-item">
-                <div class="portfolio-image"> <img src="{{ asset('assets/img/portfolio_pic3.jpg') }}" alt="Portfolio 1"> </div>
-                <div class="project-overlay">
-                    <div class="open-project-link"> <a class="open-project" href="http://clapat.ro/themes/newave/project-normal-expander-1.html" title="Open Project"></a> </div>
-                    <div class="project-info">
-                        <div class="zoom-icon"></div>
-                        <h4 class="project-name">Sony Phone</h4>
-                        <p class="project-categories">Design</p>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item Normal Expander -->
-
-            <!-- Portfolio Item FullScreen Expander -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  photography  branding web isotope-item">
-                <div class="portfolio-image"> <img src="{{ asset('assets/img/portfolio_pic4.jpg') }}" alt="Portfolio 1"> </div>
-                <div class="project-overlay">
-                    <div class="open-project-link"> <a class="open-project" href="http://clapat.ro/themes/newave/project-fullscreen-expander-1.html" title="Open Project"></a> </div>
-                    <div class="project-info">
-                        <div class="zoom-icon"></div>
-                        <h4 class="project-name">Nike Shoes</h4>
-                        <p class="project-categories">Photography, Web, Branding</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Portfolio Item FullScreen Expander -->
-
-            <!-- Portfolio Item FullScreen Expander -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design isotope-item">
-                <div class="portfolio-image"> <img src="{{ asset('assets/img/portfolio_pic5.jpg') }}" alt="Portfolio 1"> </div>
-                <div class="project-overlay">
-                    <div class="open-project-link"> <a class="open-project" href="http://clapat.ro/themes/newave/project-fullscreen-expander-2.html" title="Open Project"></a> </div>
-                    <div class="project-info">
-                        <div class="zoom-icon"></div>
-                        <h4 class="project-name">Vinyl Record</h4>
-                        <p class="project-categories">Design</p>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item FullScreen Expander -->
-
-            <!-- Portfolio Item Normal Expander -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  web isotope-item">
-                <div class="portfolio-image"> <img src="{{ asset('assets/img/portfolio_pic6.jpg') }}" alt="Portfolio 1"> </div>
-                <div class="project-overlay">
-                    <div class="open-project-link"> <a class="open-project" href="http://clapat.ro/themes/newave/project-normal-expander-2.html" title="Open Project"></a> </div>
-                    <div class="project-info">
-                        <div class="zoom-icon"></div>
-                        <h4 class="project-name">iPhone</h4>
-                        <p class="project-categories">Web</p>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item Normal Expander -->
-
-            <!-- Portfolio Item External Project  -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design web isotope-item">
-                <div class="portfolio-image"> <img src="{{ asset('assets/img/portfolio_pic7.jpg') }}" alt="Portfolio 1"> </div>
-                <a href="http://clapat.ro/themes/newave/project-external-1.html" class="external">
-                    <div class="project-overlay">
-                        <div class="project-info">
-                            <div class="zoom-icon"></div>
-                            <h4 class="project-name">Nexus Phone</h4>
-                            <p class="project-categories">Design, Web</p>
-                        </div>
-                    </div>
-                </a> </div>
-            <!--/Portfolio Item External Project  -->
-
-            <!-- Portfolio Item With PrettyPhoto  -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four   photography isotope-item">
-                <div class="portfolio-image"> <img src="{{ asset('assets/img/portfolio_pic8.jpg') }}" alt="Portfolio 1"> </div>
-                <a title="Stereo Headphones" rel="prettyPhoto[galname]" href="http://clapat.ro/themes/newave/images/portfolio/portfolio8.jpg">
-                    <div class="project-overlay">
-                        <div class="project-info">
-                            <div class="zoom-icon"></div>
-                            <h4 class="project-name">Art Frame</h4>
-                            <p class="project-categories">Photography</p>
-                        </div>
-                    </div>
-                </a> </div>
-            <!--/Portfolio Item With PrettyPhoto  -->
+            <!--/Section Title -->
 
         </div>
-        <!--/Portfolio Wrap -->
+        <!-- Container -->
 
-    </div>
-    <!--/Portfolio Plus Filters -->
+        <div class="portfolio-top"></div>
 
-    <div class="portfolio-bottom"></div>
+        <!-- Portfolio Plus Filters -->
+        <div class="portfolio">
+        @if(isset($tags) && is_object($tags))
+            <!-- Portfolio Filters -->
+                <div id="filters" class="sixteen columns">
+                    <ul class="clearfix">
+                        <li><a id="all" href="#" data-filter="*" class="active">
+                                <h5>All</h5>
+                            </a></li>
+                                @foreach( $tags as $tag)
+                            <li><a class="" href="#" data-filter=".{{$tag}}">
+                                    <h5>{{$tag}}</h5>
+                                </a></li>
+                                    @endforeach
 
-    <!-- Project Page Holder-->
-    <div id="project-page-holder">
-        <div class="clear"></div>
-        <div id="project-page-data"></div>
-    </div>
-    <!--/Project Page Holder-->
+                    </ul>
+                </div>
 
-</section>
+            @endif
+
+            <!--/Portfolio Filters -->
+
+            <!-- Portfolio Wrap -->
+            <div class="isotope" style="position: relative; overflow: hidden; height: 480px;" id="portfolio-wrap">
+
+                @foreach($portfolios as $item)
+                    <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four   {{$item->filter}} isotope-item">
+                    <div class="portfolio-image"> {{Html::image('assets/img/'.$item->images,$item->name)}} </div>
+                    <a title="Starbucks Coffee" rel="prettyPhoto[galname]" href="http://clapat.ro/themes/newave/images/portfolio/portfolio2.jpg">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <div class="zoom-icon"></div>
+                                <h4 class="project-name">{{$item->name}}</h4>
+                                <p class="project-categories">{{$item->filter}}</p>
+                            </div>
+                        </div>
+                    </a> </div>
+                    @endforeach
+
+
+            </div>
+        <!--/Portfolio Plus Filters -->
+
+        <div class="portfolio-bottom"></div>
+
+        <!-- Project Page Holder-->
+        <div id="project-page-holder">
+            <div class="clear"></div>
+            <div id="project-page-data"></div>
+        </div>
+        <!--/Project Page Holder-->
+        </div>
+    </section>
+
+
+@endif
+
+
+
 <!--/Portfolio -->
 
 <!--new_portfolio-->
@@ -279,96 +184,46 @@
 
 -->
 
-<section class="main-section" id="client_outer"><!--main-section client-part-start-->
-    <h2>Happy Clients</h2>
-    <div class="client_area ">
-        <div class="client_section animated  fadeInUp wow">
-            <div class="client_profile">
-                <div class="client_profile_pic"><img src="{{ asset('assets/img/client-pic1.jpg') }}" alt=""></div>
-                <h3>Saul Goodman</h3>
-                <span>Lawless Inc</span> </div>
-            <div class="quote_section">
-                <div class="quote_arrow"></div>
-                <p><b><img src="img/quote_sign_left.png" alt=""></b> Proin iaculis purus consequat sem cure  digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper. <small><img src="img/quote_sign_right.png" alt=""></small> </p>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="client_section animated  fadeInDown wow">
-            <div class="client_profile flt">
-                <div class="client_profile_pic"><img src="{{ asset('assets/img/client-pic2.jpg') }}" alt=""></div>
-                <h3>Marie Schrader</h3>
-                <span>DEA Foundation</span> </div>
-            <div class="quote_section flt">
-                <div class="quote_arrow2"></div>
-                <p><b><img src="{{ asset('assets/img/quote_sign_left.png') }}" alt=""></b> Proin iaculis purus consequat sem cure  digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper. <small><img src="{{ asset('assets/img/quote_sign_right.png') }}" alt=""></small> </p>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-</section>
+
 <!--main-section client-part-end-->
 
-<div class="c-logo-part"><!--c-logo-part-start-->
-    <div class="container">
-        <ul class="delay-06s animated  bounce wow">
-            <li><a href="javascript:void(0)"><img src="{{ asset('assets/img/c-liogo1.png') }}" alt=""></a></li>
-            <li><a href="javascript:void(0)"><img src="{{ asset('assets/img/c-liogo2.png') }}" alt=""></a></li>
-            <li><a href="javascript:void(0)"><img src="{{ asset('assets/img/c-liogo3.png') }}" alt=""></a></li>
-            <li><a href="javascript:void(0)"><img src="{{ asset('assets/img/c-liogo5.png') }}" alt=""></a></li>
-        </ul>
-    </div>
-</div>
+{{--<div class="c-logo-part"><!--c-logo-part-start-->--}}
+    {{--<div class="container">--}}
+        {{--<ul class="delay-06s animated  bounce wow">--}}
+            {{--<li><a href="javascript:void(0)"><img src="{{ asset('assets/img/c-liogo1.png') }}" alt=""></a></li>--}}
+            {{--<li><a href="javascript:void(0)"><img src="{{ asset('assets/img/c-liogo2.png') }}" alt=""></a></li>--}}
+            {{--<li><a href="javascript:void(0)"><img src="{{ asset('assets/img/c-liogo3.png') }}" alt=""></a></li>--}}
+            {{--<li><a href="javascript:void(0)"><img src="{{ asset('assets/img/c-liogo5.png') }}" alt=""></a></li>--}}
+        {{--</ul>--}}
+    {{--</div>--}}
+{{--</div>--}}
 <!--c-logo-part-end-->
-<section class="main-section team" id="team"><!--main-section team-start-->
-    <div class="container">
-        <h2>Amazing Team</h2>
-        <h6>Take a closer look into our amazing team. We won’t bite.</h6>
-        <div class="team-leader-block clearfix">
-            <div class="team-leader-box">
-                <div class="team-leader wow fadeInDown delay-03s">
-                    <div class="team-leader-shadow"><a href="javascript:void(0)"></a></div>
-                    <img src="{{ asset('assets/img/team-leader-pic1.jpg') }}" alt="">
-                    <ul>
-                        <li><a href="javascript:void(0)" class="fa-twitter"></a></li>
-                        <li><a href="javascript:void(0)" class="fa-facebook"></a></li>
-                        <li><a href="javascript:void(0)" class="fa-pinterest"></a></li>
-                        <li><a href="javascript:void(0)" class="fa-google-plus"></a></li>
-                    </ul>
-                </div>
-                <h3 class="wow fadeInDown delay-03s">Walter White</h3>
-                <span class="wow fadeInDown delay-03s">Chief Executive Officer</span>
-                <p class="wow fadeInDown delay-03s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
-            </div>
-            <div class="team-leader-box">
-                <div class="team-leader  wow fadeInDown delay-06s">
-                    <div class="team-leader-shadow"><a href="javascript:void(0)"></a></div>
-                    <img src="{{ asset('assets/img/team-leader-pic2.jpg') }}" alt="">
-                    <ul>
-                        <li><a href="javascript:void(0)" class="fa-twitter"></a></li>
-                        <li><a href="javascript:void(0)" class="fa-facebook"></a></li>
-                        <li><a href="javascript:void(0)" class="fa-pinterest"></a></li>
-                        <li><a href="javascript:void(0)" class="fa-google-plus"></a></li>
-                    </ul>
-                </div>
-                <h3 class="wow fadeInDown delay-06s">Jesse Pinkman</h3>
-                <span class="wow fadeInDown delay-06s">Product Manager</span>
-                <p class="wow fadeInDown delay-06s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
-            </div>
-            <div class="team-leader-box">
-                <div class="team-leader wow fadeInDown delay-09s">
-                    <div class="team-leader-shadow"><a href="javascript:void(0)"></a></div>
-                    <img src="{{ asset('assets/img/team-leader-pic3.jpg') }}" alt="">
-                    <ul>
-                        <li><a href="javascript:void(0)" class="fa-twitter"></a></li>
-                        <li><a href="javascript:void(0)" class="fa-facebook"></a></li>
-                        <li><a href="javascript:void(0)" class="fa-pinterest"></a></li>
-                        <li><a href="javascript:void(0)" class="fa-google-plus"></a></li>
-                    </ul>
-                </div>
-                <h3 class="wow fadeInDown delay-09s">Skyler white</h3>
-                <span class="wow fadeInDown delay-09s">Accountant</span>
-                <p class="wow fadeInDown delay-09s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
-            </div>
+@if(isset($peoples) && is_object($peoples))
+    <section class="main-section team" id="team"><!--main-section team-start-->
+        <div class="container">
+            <h2>Amazing Team</h2>
+            <h6>Take a closer look into our amazing team. We won’t bite.</h6>
+            <div class="team-leader-block clearfix">
+
+                @foreach($peoples as $k=> $people)
+                    <div class="team-leader-box">
+                        <div class="team-leader wow fadeInDown delay-0{{($k*3+3)}}s">
+                            <div class="team-leader-shadow"><a href="javascript:void(0)"></a></div>
+                            {{Html::image('assets/img/'.$people->images, $people->name)}}
+                            <ul>
+                                <li><a href="javascript:void(0)" class="fa-twitter"></a></li>
+                                <li><a href="javascript:void(0)" class="fa-facebook"></a></li>
+                                <li><a href="javascript:void(0)" class="fa-pinterest"></a></li>
+                                <li><a href="javascript:void(0)" class="fa-google-plus"></a></li>
+                            </ul>
+                        </div>
+                        <h3 class="wow fadeInDown delay-{{($k*3+3)}}s">{{$people->name}}</h3>
+                        <span class="wow fadeInDown delay-{{($k*3+3)}}s">{{$people->position}}</span>
+                        <p class="wow fadeInDown delay-{{($k*3+3)}}s">{{$people->text}}</p>
+                    </div>
+                @endforeach
+    @endif
+
         </div>
     </div>
 </section>
@@ -423,10 +278,15 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp delay-06s">
                     <div class="form">
-                        <input class="input-text animated wow flipInY delay-02s" type="text" name="" value="Your Name *" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
-                        <input class="input-text animated wow flipInY delay-04s" type="text" name="" value="Your E-mail *" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
-                        <textarea class="input-text text-area animated wow flipInY delay-06s" cols="0" rows="0" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
+                        <form action="{{route('home')}}" method="post">
+                        <input class="input-text animated wow flipInY delay-02s" type="text" name="name" value="Your Name *" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+
+                        <input class="input-text animated wow flipInY delay-04s" type="text" name="email" value="Your E-mail *" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">
+
+                        <textarea class="input-text text-area animated wow flipInY delay-06s" name="text" cols="0" rows="0" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
                         <input class="input-btn animated wow flipInY delay-08s" type="submit" value="send message">
+                            {{csrf_field()}}
+                        </form>
                     </div>
                 </div>
             </div>

@@ -31,6 +31,8 @@
     <script src="{{ asset('assets/js/html5element.js') }}"></script>
     <![endif]-->
 
+
+
     <script type="text/javascript">
         $(document).ready(function(e) {
             $('.res-nav_click').click(function(){

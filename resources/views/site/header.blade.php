@@ -31,3 +31,20 @@
 
         <a class="res-nav_click animated wobble wow"  href="javascript:void(0)"><i class="fa-bars"></i></a> </div>
 </div>
+
+@if(session('status'))
+    <div class="alert alert-success">
+        {{session('status')}}
+    </div>
+@endif
+
+
+@if(count($errors)>0)
+    <div class="alert alert-success">
+        <ul>
+    @foreach($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+        </ul>
+    </div>
+    @endif
