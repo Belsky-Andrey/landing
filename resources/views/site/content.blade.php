@@ -4,7 +4,7 @@
     @foreach($pages as $k=>$page)
 
         @if($k%2 == 0)
-            <section id="home" class="top_cont_outer">
+            <section id="{{$page->alias}}" class="top_cont_outer">
                 <div class="top_cont_inner">
                     <div class="container">
                         <div class="top_content">
@@ -21,7 +21,7 @@
                 </div>
             </section>
         @else
-            <section id="aboutUs"><!--main-section-start-->
+            <section id="{{$page->alias}}"><!--main-section-start-->
                 <div class="top_cont_latest">
                     <div class="container">
                         <h2>{{$page->name}}</h2>
