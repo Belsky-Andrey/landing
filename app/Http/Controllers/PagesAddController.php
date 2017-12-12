@@ -15,21 +15,21 @@ class PagesAddController extends Controller
 
             $input = $request->except('_token');
 
-            $massages=[
+            $messages=[
                 'required'=>'Поле :attribute обязательно к заполнению',
                 'unique'=>'Поле :attribute должно быть уникальным'
             ];
 
 
-            $validatot = Validator::make($input, [
+            $validator = Validator::make($input, [
                 'name' => 'required|max:255',
                 'alias' => 'required|unique:pages|max:255',
                 'text' => 'required'
 
-            ],$massages);
+            ],$messages);
 
-            if ($validatot->fails()) {
-                return redirect()->route('pagesAdd')->withErrors($validatot)->withInput();
+            if ($validator->fails()) {
+                return redirect()->route('pagesAdd')->withErrors($validator)->withInput();
             }
             if ($request->hasFile('images')) {
 

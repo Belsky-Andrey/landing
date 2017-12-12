@@ -39,11 +39,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     });
 
     Route::group(['prefix'=>'portfolios'],function(){
-        Route::get('/',['uses'=>'PortfolioController@execute','as'=>'portfolio']);
+        Route::get('/',['uses'=>'PortfoliosController@execute','as'=>'portfolio']);
 
-        Route::match(['get','post'],'/add',['uses'=>'PortfolioAddController@execute','as'=>'portfolioAdd']);
+        Route::match(['get','post'],'/add',['uses'=>'PortfoliosAddController@execute','as'=>'portfolioAdd']);
 
-        Route::match(['get','post','delete'],'/edit/{portfolio}',['uses'=>'PortfolioEditController@execute','as'=>'portfolioEdit']);
+        Route::match(['get','post','delete'],'/edit/{portfolio}',['uses'=>'PortfoliosEditController@execute','as'=>'portfolioEdit']);
     });
 
     Route::group(['prefix'=>'services'],function(){
@@ -57,4 +57,4 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');

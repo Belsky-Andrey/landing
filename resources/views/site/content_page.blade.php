@@ -5,6 +5,7 @@
             <h2>{{$page->name}}</h2>
             <div class="work_section">
                 <div class="row">
+                    <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12 pull-right">{!! Html::image('assets/img/'.$page->images,'',array('class'=>'img-circle delay-03s animated wow zoomIn')) !!}</div>
                     <div class="col-lg-6 col-sm-6 wow fadeInLeft delay-05s">
                         <div class="service-list">
                             <div class="service-list-col1"> <i class="icon-doc"></i> </div>
