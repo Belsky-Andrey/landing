@@ -26,7 +26,7 @@ class PortfoliosEditController extends Controller
                 'required' => 'Поле :attribute обязательно к заполнению',
                 'unique' => 'Поле :attribute должно быть уникальным'
             ];
-dd($input);
+
             $validator = Validator::make($input, [
 
                 'name' => 'required|max:255',

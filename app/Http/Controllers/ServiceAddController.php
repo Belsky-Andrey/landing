@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
 use Illuminate\Http\Request;
 use Validator;
-use App\Portfolio;
 
-class PortfoliosAddController extends Controller
+class ServiceAddController extends Controller
 {
     public  function execute (Request $request){
 
@@ -22,12 +22,13 @@ class PortfoliosAddController extends Controller
 
             $validator = Validator::make($input, [
                 'name' => 'required|max:255',
-                'filter' => 'required|max:255',
+                'text' => 'required|max:255'
+
 
             ],$messages);
 
             if ($validator->fails()) {
-                return redirect()->route('portfoliosAdd')->withErrors($validator)->withInput();
+                return redirect()->route('serviceAdd')->withErrors($validator)->withInput();
             }
             if ($request->hasFile('images')) {
 
@@ -39,7 +40,7 @@ class PortfoliosAddController extends Controller
 
             }
 
-            $page = new Portfolio();
+            $page = new Service();
             $page->fill($input);
 
             if($page->save()){
@@ -47,13 +48,13 @@ class PortfoliosAddController extends Controller
             }
         }
 
-        if (view()->exists('admin.portfolios_add')) {
+        if (view()->exists('admin.services_add')) {
             $data = [
 
                 'title' => 'Новая страница '
 
             ];
-            return view('admin.portfolios_add', $data);
+            return view('admin.services_add', $data);
         }
         abort(404);
     }
