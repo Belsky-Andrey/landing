@@ -20,12 +20,12 @@
             @foreach($services as $k => $service)
                 <tr>
                     <td>{{$service->id}}</td>
-                    <td>{!! Html::link(route('serviceEdit',['service'=>$service->id]),$service->name,['alt'=>$service->name]) !!} </td>
+                    <td>{!! Html::link(route('servicesEdit',['service'=>$service->id]),$service->name,['alt'=>$service->name]) !!} </td>
                     <td>{{$service->text}}</td>
                     {{--<td>{{Html::image('/assets/img/'.$service->icon,'',array('style'=> 'width:150px'))}}</td>--}}
 
                     <td>
-                        {!! Form::open(['url'=>route('serviceEdit',['page'=>$service->id]),'class'=>'form-horizontal','metod'=>'POST']) !!}
+                        {!! Form::open(['url'=>route('servicesEdit',['page'=>$service->id]),'class'=>'form-horizontal','metod'=>'POST']) !!}
                         {{--{!! Form::hidden('_method','delete') !!}--}}
 
                         {{method_field('DELETE')}}
@@ -42,6 +42,6 @@
 
         </table>
     @endif
-    {!! Html::link(route('serviceAdd'),'Новый Сервис') !!}
+    {!! Html::link(route('servicesAdd'),'Новый Сервис') !!}
 
 </div>
