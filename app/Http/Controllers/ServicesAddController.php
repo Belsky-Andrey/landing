@@ -6,7 +6,7 @@ use App\Service;
 use Illuminate\Http\Request;
 use Validator;
 
-class ServiceAddController extends Controller
+class ServicesAddController extends Controller
 {
     public  function execute (Request $request){
 
